@@ -1,0 +1,80 @@
+{
+  "extDescription": { 
+    "message": "Blur Telegram Web content for privacy, reveal on hover or click." 
+  },
+  "optionsTitle": { 
+    "message": "Telegram Blur Settings" 
+  },
+  "settingsHeader": { 
+    "message": "Telegram Web Privacy Blur" 
+  },
+  "settingsSubtitle": { 
+    "message": "Customize privacy settings for Telegram Web" 
+  },
+  "blurElements": { 
+    "message": "Blur Elements" 
+  },
+  "blurAvatars": { 
+    "message": "Blur profile pictures" 
+  },
+  "blurNames": { 
+    "message": "Blur chat names" 
+  },
+  "blurMessages": { 
+    "message": "Blur message bubbles" 
+  },
+  "blurTimestamps": { 
+    "message": "Blur timestamps" 
+  },
+  "blurBehavior": { 
+    "message": "Blur Behavior" 
+  },
+  "blurIntensity": { 
+    "message": "Blur intensity" 
+  },
+  "unlockOnClick": { 
+    "message": "Require click to unblur (instead of hover)" 
+  },
+  "security": { 
+    "message": "Security" 
+  },
+  "setPin": { 
+    "message": "Set PIN to unblur (optional)" 
+  },
+  "pinHint": { 
+    "message": "Leave empty for no PIN protection" 
+  },
+  "enterPin": { 
+    "message": "Enter PIN to reveal" 
+  },
+  "whitelistHosts": { 
+    "message": "Whitelist Hosts" 
+  },
+  "whitelistHint": { 
+    "message": "Blur will not be applied on these domains" 
+  },
+  "saveButton": { 
+    "message": "Save Settings" 
+  },
+  "resetButton": { 
+    "message": "Reset to Default" 
+  },
+  "savedFeedback": { 
+    "message": "Saved!" 
+  },
+  "confirmReset": { 
+    "message": "Reset all settings to default?" 
+  },
+  "ctxToggle": { 
+    "message": "Toggle blur on this element" 
+  },
+  "ctxToggleAll": { 
+    "message": "Toggle all blur on/off" 
+  },
+  "ctxOpenOptions": { 
+    "message": "Blur settings" 
+  },
+  "viewSource": { 
+    "message": "View Source" 
+  }
+} 

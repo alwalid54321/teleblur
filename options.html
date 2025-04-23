@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="optionsTitle">إعدادات التمويه</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 data-i18n="settingsHeader">إعدادات التمويه لتليجرام</h1>
+      <p class="subtitle" data-i18n="settingsSubtitle">Customize privacy settings for Telegram Web</p>
+    </header>
+
+    <section class="card">
+      <h2 data-i18n="blurElements">Blur Elements</h2>
+      <div class="option-row">
+        <label class="switch-container">
+          <input type="checkbox" id="blurSidebar">
+          <span class="switch"></span>
+          <span data-i18n="blurNames">تمويه أسماء الدردشة والمعاينات</span>
+        </label>
+      </div>
+      <div class="option-row">
+        <label class="switch-container">
+          <input type="checkbox" id="blurHeader">
+          <span class="switch"></span>
+          <span data-i18n="blurHeader">تمويه معلومات أعلى المحادثة</span>
+        </label>
+      </div>
+      <div class="option-row">
+        <label class="switch-container">
+          <input type="checkbox" id="blurMsgs">
+          <span class="switch"></span>
+          <span data-i18n="blurMessages">تمويه رسائل المحادثة</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="blurBehavior">Blur Behavior</h2>
+      <div class="option-row">
+        <label for="intensity">
+          <span data-i18n="blurIntensity">شدة التمويه</span>: 
+          <span id="intVal">8</span>px
+        </label>
+        <input type="range" id="intensity" min="0" max="20" value="8" class="slider">
+      </div>
+      <div class="option-row">
+        <label class="switch-container">
+          <input type="checkbox" id="unlockOnClick">
+          <span class="switch"></span>
+          <span data-i18n="unlockOnClick">Require click to unblur (instead of hover)</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="security">Security</h2>
+      <div class="option-row">
+        <label for="pin" data-i18n="setPin">Set PIN to unblur (optional):</label>
+        <input type="password" id="pin" maxlength="6" placeholder="123456" class="text-input">
+        <p class="hint" data-i18n="pinHint">Leave empty for no PIN protection</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="whitelistHosts">Whitelist Hosts</h2>
+      <p class="hint" data-i18n="whitelistHint">Blur will not be applied on these domains</p>
+      <textarea id="whitelist" rows="4" placeholder="web.telegram.org" class="text-input"></textarea>
+    </section>
+
+    <section class="card card-actions">
+      <button id="save" class="button primary" data-i18n="saveButton">Save Settings</button>
+      <button id="reset" class="button" data-i18n="resetButton">Reset to Default</button>
+    </section>
+
+    <footer>
+      <p>Telegram Web Privacy Blur v1.2.0</p>
+      <p><a href="https://github.com/username/telegram-blur-extension" target="_blank" data-i18n="viewSource">View Source</a></p>
+    </footer>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html> 

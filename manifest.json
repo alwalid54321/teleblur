@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Telegram Web Privacy Blur",
+  "version": "1.0.0",
+  "default_locale": "ar",
+  "description": "__MSG_extDescription__",
+  "icons": { "48": "icon48.png", "128": "icon128.png" },
+  "permissions": ["storage", "contextMenus", "commands"],
+  "host_permissions": ["https://web.telegram.org/*"],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": { "service_worker": "background.js", "type": "module" },
+  "content_scripts": [{
+    "matches": ["https://web.telegram.org/*"],
+    "js": ["content-script.js"],
+    "css": ["blur.css"],
+    "run_at": "document_start"
+  }],
+  "commands": {
+    "toggle-blur": {
+      "suggested_key": { "default": "Ctrl+Shift+B" },
+      "description": "Toggle all blur"
+    }
+  },
+  "action": {
+    "default_title": "__MSG_extDescription__",
+    "default_popup": "options.html"
+  }
+} 
