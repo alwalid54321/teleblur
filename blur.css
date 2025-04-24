@@ -4,171 +4,68 @@
   color-scheme: light dark;
 }
 
-/* common class applied to all targets */
-.blur-target {
-  filter: blur(var(--blur-radius));
-  transition: filter var(--transition-time) ease;
-}
-
-/* Hover unblur functionality - controlled by options */
-.blur-hover:hover {
-  filter: none !important;
-}
-
-/* Universal class for onClick unblur */
-.no-blur, .no-blur .blur-target {
-  filter: none !important;
-}
-
-/* Profile picture border reduction and styling */
-.avatar, .Avatar, .user-avatar, .chat-avatar, .dialog-avatar, 
-.profile-avatar-wrap, .userpic, .dialog_photo, .profile_photo,
-img[class*="avatar"], img[class*="photo"], img[class*="pic"],
-.ListItem-button .Avatar, .ChatInfo .Avatar, .Message .Avatar,
-[class*="photo"]:not(input), [class*="avatar"], [class*="userpic"] {
-  border-radius: 8px !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  overflow: hidden !important;
-}
-
-/* Special chat name treatment to ensure hover works */
-.user-name, .chat-name, .dialog-name, .peer-title, 
-.ListItem-button .title, .ChatInfo-title, .sender-name,
-[class*="peer-title"], [class*="chat-name"], [class*="username"],
-[class*="ListItem-title"], [class*="dialog-title"] {
-  display: inline-block !important; /* Ensure hover works properly */
-  padding: 2px 4px !important; /* Add some padding for better hover area */
-  border-radius: 4px !important; /* Rounded corners for hover effect */
-  transition: all var(--transition-time) ease !important;
-}
-
-/* Chat name hover enhancement */
-.blur-hover.user-name:hover, .blur-hover.chat-name:hover, 
-.blur-hover.dialog-name:hover, .blur-hover.peer-title:hover,
-.blur-hover.ListItem-button .title:hover, .blur-hover.ChatInfo-title:hover,
-.blur-hover.sender-name:hover, .blur-hover[class*="peer-title"]:hover,
-.blur-hover[class*="chat-name"]:hover, .blur-hover[class*="username"]:hover,
-.blur-hover[class*="ListItem-title"]:hover, .blur-hover[class*="dialog-title"]:hover {
-  background-color: rgba(0, 0, 0, 0.05) !important; /* Subtle highlight on hover */
-}
-
-/* Modern Telegram Web selectors */
-/* Avatar selectors */
-.avatar, .Avatar, .user-avatar, .chat-avatar, .dialog-avatar, 
-.profile-avatar-wrap, .userpic, .dialog_photo, .profile_photo,
-img[class*="avatar"], img[class*="photo"], img[class*="pic"],
-.ListItem-button .Avatar, .ChatInfo .Avatar, .Message .Avatar,
-[class*="photo"], [class*="avatar"], [class*="userpic"] {
-  /* applied via content-script.js */
-}
-
-/* Name selectors */
-.user-name, .chat-name, .dialog-name, .peer-title, 
-.ListItem-button .title, .ChatInfo-title, 
-.message-title, .dialog_title, .im_dialog_peer, 
-[class*="name"], [class*="title"], [class*="peer"],
-.sender-name, .username, [class*="username"] {
-  /* applied via content-script.js */
-}
-
-/* Message selectors */
-.message, .message-content, .message-text, .im_message_text,
-.message-bubble, .bubble, .MessageList, .message-row,
-[class*="message"], [class*="bubble"], [class*="msg"],
-.Message .content-inner, .content-inner, .Message-body {
-  /* applied via content-script.js */
-}
-
-/* Timestamp selectors */
-.timestamp, .time, .date, .message-date, 
-.im_message_date, [class*="time"], [class*="date"],
-.message-meta-time, .meta-time, .meta-date,
-.Message time, .Message .time, .time-absolute {
-  /* applied via content-script.js */
-}
-
-/* Dark mode improvements */
-@media (prefers-color-scheme: dark) {
-  .blur-target {
-    /* Slightly larger blur in dark mode for better visibility */
-    filter: blur(calc(var(--blur-radius) * 1.25));
-  }
-  
-  /* Adjust profile picture border for dark mode */
-  .avatar, .Avatar, .user-avatar, .chat-avatar, .dialog-avatar, 
-  .profile-avatar-wrap, .userpic, .dialog_photo, .profile_photo,
-  img[class*="avatar"], img[class*="photo"], img[class*="pic"],
-  .ListItem-button .Avatar, .ChatInfo .Avatar, .Message .Avatar,
-  [class*="photo"]:not(input), [class*="avatar"], [class*="userpic"] {
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  }
-  
-  /* Chat name hover enhancement for dark mode */
-  .blur-hover.user-name:hover, .blur-hover.chat-name:hover, 
-  .blur-hover.dialog-name:hover, .blur-hover.peer-title:hover,
-  .blur-hover.ListItem-button .title:hover, .blur-hover.ChatInfo-title:hover,
-  .blur-hover.sender-name:hover, .blur-hover[class*="peer-title"]:hover,
-  .blur-hover[class*="chat-name"]:hover, .blur-hover[class*="username"]:hover,
-  .blur-hover[class*="ListItem-title"]:hover, .blur-hover[class*="dialog-title"]:hover {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-  }
-}
-
-/* Sidebar chat: title & preview */
-.im_dialog_peer,
+/* 1) Sidebar chats: row container, avatar, title, preview */
+a.im_dialog,
+.im_dialog_photo img,
+.im_dialog_peer > span,
 .im_dialog_snippet,
 .im_dialog_text_wrap {
   filter: blur(var(--blur-radius));
   transition: filter var(--transition-time) ease;
 }
-.im_dialog_peer:hover,
+a.im_dialog:hover,
+.im_dialog_photo:hover img,
+.im_dialog_peer:hover > span,
 .im_dialog_snippet:hover,
 .im_dialog_text_wrap:hover {
   filter: none;
 }
 
-/* Sidebar avatar */
-.im_dialog_photo img {
-  border-radius: 50%; /* circular */
-  border: 1px solid rgba(0,0,0,0.2);
-  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+/* 2) Header user info & avatar */
+.tg_head_peer_info,
+.tg_head_peer_info img {
   filter: blur(var(--blur-radius));
   transition: filter var(--transition-time) ease;
 }
-.im_dialog_photo:hover img {
+.tg_head_peer_info:hover,
+.tg_head_peer_info:hover img {
   filter: none;
 }
 
-/* Header chat info */
-.tg_head_peer_info {
-  filter: blur(var(--blur-radius));
-  transition: filter var(--transition-time) ease;
-}
-.tg_head_peer_info:hover {
-  filter: none;
-}
-
-/* In-chat messages and media */
+/* 3) In-chat messages, metadata, replies, contacts */
 .im_content_message_wrap,
+.im_message_wrap,
 .im_message_text,
 .im_message_meta,
 .im_message_date_wrap,
-.im_message_status_icon {
+.im_message_status_icon,
+.im_message_reply_wrap,
+.im_message_contact_name,
+.im_message_contact_phone {
   filter: blur(var(--blur-radius));
   transition: filter var(--transition-time) ease;
 }
 .im_content_message_wrap:hover,
+.im_message_wrap:hover,
 .im_message_text:hover,
 .im_message_meta:hover,
 .im_message_date_wrap:hover,
-.im_message_status_icon:hover {
+.im_message_status_icon:hover,
+.im_message_reply_wrap:hover,
+.im_message_contact_name:hover,
+.im_message_contact_phone:hover {
   filter: none;
 }
 
-/* Allow manual toggling */
-.blur-target { filter: blur(var(--blur-radius)) !important; }
-.blur-target:hover { filter: none !important; }
+/* 4) Manual toggle override */
+.blur-target {
+  filter: blur(var(--blur-radius)) !important;
+}
+.blur-target:hover {
+  filter: none !important;
+}
 
+/* Dark-mode tweak */
 @media (prefers-color-scheme: dark) {
   :root { --blur-radius: 10px; }
-} 
+}
